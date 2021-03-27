@@ -26,13 +26,13 @@ public class LoginFromSineInPageServlet extends HttpServlet {
                 Customer customer = EntityDao.fetchCustomerByUsername(username);
                 HttpSession session = request.getSession();
                 session.setAttribute("name", customer.getName());
-                request.getRequestDispatcher("/profile").include(request, response);
+                request.getRequestDispatcher("/service").include(request, response);
             }
             else {
                 HttpSession session = request.getSession(false);
                 String uname = (String) session.getAttribute("name");
                 if (uname!=null){
-                    request.getRequestDispatcher("/profile").include(request, response);
+                    request.getRequestDispatcher("/service").include(request, response);
                 }else {
                     writer.println("Please login first");
                     request.getRequestDispatcher("customer.html").include(request, response);
