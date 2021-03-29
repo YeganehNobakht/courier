@@ -1,9 +1,15 @@
 package data;
 
 import model.Customer;
+import model.NewDelivery;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.Transaction;
+import org.hibernate.query.Query;
+
+import javax.persistence.criteria.CriteriaBuilder;
+import javax.persistence.criteria.CriteriaQuery;
+import javax.persistence.criteria.Root;
 
 public class EntityDao {
     private static SessionFactory sessionFactory = HibernateUtil.buildSessionFactory();
@@ -30,6 +36,17 @@ public class EntityDao {
         transaction.commit();
         session.close();
         return roomReservation;
+    }
+    public static Integer getMaxReserveNumber(){
+        Session session = sessionFactory.openSession();
+        CriteriaBuilder criteriaBuilder =session.getCriteriaBuilder();
+        CriteriaQuery<Object> criteriaQuery = criteriaBuilder.createQuery(Object.class);
+        Root<NewDelivery> root = criteriaQuery.from(NewDelivery.class);
+        criteriaQuery.select(criteriaBuilder.max(root.get("trackingCode")));
+        Query query =session.createQuery(criteriaQuery);
+        Integer trackingCode = (Integer) query.getSingleResult();
+        session.close();
+        return trackingCode;
     }
 
 }
