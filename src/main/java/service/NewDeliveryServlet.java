@@ -49,13 +49,13 @@ public class NewDeliveryServlet extends HttpServlet {
                     "        <input type=\"text\" placeholder=\"Enter Block\" name=\"block\" id=\"originblock\" size=\"1\" required>\n" +
                     "\n" +
                     "        <label ><b>Destination</b></label><br>\n" +
-                    "        <select id=\"destinationProvince\" size=\"1\" onchange=\"destinationMakeSubmenu(this.value)\">\n" +
+                    "        <select id=\"destinationProvince\" name=\"destinationProvince\" size=\"1\" onchange=\"destinationMakeSubmenu(this.value)\">\n" +
                     "            <option value=\"\" disabled selected>Choose State</option>\n" +
                     "            <option>Tehran</option>\n" +
                     "            <option>Isfahan</option>\n" +
                     "            <option>Alborz</option>\n" +
                     "        </select>\n" +
-                    "        <select id=\"destinationCity\" size=\"1\" >\n" +
+                    "        <select id=\"destinationCity\" name=\"destinationCity\" size=\"1\" >\n" +
                     "            <option value=\"\" disabled selected>Choose City</option>\n" +
                     "            <option></option>\n" +
                     "        </select><br>\n" +
@@ -128,6 +128,8 @@ public class NewDeliveryServlet extends HttpServlet {
                     "                <button type=\"button\" class=\"btn cancel\" onclick=\"closeForm()\">Close</button>\n" +
                     "            </div>\n" +
                     "        </div>\n" +
+                    "        <input id=\"date-of-registration\" name=\"date-of-registration\" class=\"input\" type=hidden/>\n" +
+                    "\n" +
                     "\n" +
                     "\n" +
                     "    </div><hr>\n" +
@@ -140,6 +142,10 @@ public class NewDeliveryServlet extends HttpServlet {
                     "\n" +
                     "<script src=\"newDelivery.js\"></script>\n" +
                     "<script src=\"Validity.js\"></script>\n" +
+                    "<Script>var currentTime = new Date();\n" +
+                    "var curdate = currentTime.getDate();\n" +
+                    "document.getElementById(\"date-of-registration\").value = curdate;\n" +
+                    "</script>\n" +
                     "</body>\n" +
                     "\n" +
                     "</html>");
