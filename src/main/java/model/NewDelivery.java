@@ -1,13 +1,14 @@
 package model;
 
 import javax.persistence.*;
+import java.sql.Date;
 
 @Entity
-@TableGenerator(name="tab", initialValue=10000/*, allocationSize=50000*/)
+//@TableGenerator(name="tab", initialValue=10000/*, allocationSize=50000*/)
 public class NewDelivery {
     @Id
-    @GeneratedValue(strategy= GenerationType.TABLE, generator="tab")
-    private String trackingCode;
+    //@GeneratedValue(strategy= GenerationType.TABLE, generator="tab")
+    private int trackingCode;
     @Column
     private String originAddress;
     @Column
@@ -24,9 +25,12 @@ public class NewDelivery {
     private String packageSize;
     @Column
     private String sendType;
+    @Column
+    private Date submitDate;
+    @Column
+    private int price;
 
-    public NewDelivery(String trackingCode, String originAddress, String destinationAddress, String recipientsPhone, String recipientsName, String packageType, int packageWeight, String packageSize, String sendType) {
-        this.trackingCode = trackingCode;
+    public NewDelivery( String originAddress, String destinationAddress, String recipientsPhone, String recipientsName, String packageType, int packageWeight, String packageSize, String sendType, Date submitDate) {
         this.originAddress = originAddress;
         this.destinationAddress = destinationAddress;
         RecipientsPhone = recipientsPhone;
@@ -35,16 +39,24 @@ public class NewDelivery {
         this.packageWeight = packageWeight;
         this.packageSize = packageSize;
         this.sendType = sendType;
+        this.submitDate = submitDate;
+        if (packageType.equalsIgnoreCase("premium"))
+            this.price = 20000 * packageWeight;
+        if (packageType.equalsIgnoreCase("gold"))
+            this.price = 14000 * packageWeight;
+        if (packageType.equalsIgnoreCase("silver"))
+            this.price = 10000 * packageWeight;
+
     }
 
     public NewDelivery() {
     }
 
-    public String getTrackingCode() {
+    public int getTrackingCode() {
         return trackingCode;
     }
 
-    public void setTrackingCode(String trackingCode) {
+    public void setTrackingCode(int trackingCode) {
         this.trackingCode = trackingCode;
     }
 
