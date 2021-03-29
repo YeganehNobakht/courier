@@ -25,16 +25,26 @@ public class ServiceServlet extends HttpServlet {
                     "    <title>service</title>\n" +
                     "</head>\n" +
                     "<body>\n" +
-                    "<div class=\"button-item\">\n" +
-                    "<a class=\"inner-button\"\n" +
-                    "   tabindex=\"0\" role=\"button\" aria-disabled=\"false\" title=\"New Delivery\" href=\"delivery\"\n" +
-                    "   style=\"border-style: double\">\n" +
-                    "    <div class=\"item-img\"><img src=\"newdelivery.jpg\" alt=\"\"></div></a>\n" +
                     "\n" +
+                    "<div class=\"button-item\">\n" +
+                    "    <div class=\"shift\">\n" +
+                    "    <div class=\"\">\n" +
                     "    <a class=\"inner-button\"\n" +
-                    "       tabindex=\"0\" role=\"button\" aria-disabled=\"false\" title=\"Track Order\" href=\"trackorder\"\n" +
+                    "       tabindex=\"0\" role=\"button\" aria-disabled=\"false\" title=\"New Delivery\" href=\"/newdelivery\"\n" +
                     "       style=\"border-style: double\">\n" +
-                    "        <div class=\"item-img\"><img src=\"track.png\" alt=\"\"></div></a>\n" +
+                    "        <div class=\"item-img\"><img src=\"newdelivery.jpg\" alt=\"\"></div>\n" +
+                    "    </a>\n" +
+                    "    </div>\n" +
+                    "<div >\n" +
+                    "    <a class=\"inner-button \"\n" +
+                    "       tabindex=\"0\" role=\"button\" aria-disabled=\"false\" title=\"Track Order\" href=\"/trackorder\"\n" +
+                    "       style=\"border-style: double\">\n" +
+                    "        <div class=\"item-img\"><img src=\"track.png\" alt=\"\"></div>\n" +
+                    "    </a>\n" +
+                    "</div>\n" +
+                    "</div>\n" +
+                    "    </div>\n" +
+                    "\n" +
                     "</div>\n" +
                     "</body>\n" +
                     "</html>");
