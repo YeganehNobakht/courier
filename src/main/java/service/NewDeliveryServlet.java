@@ -60,7 +60,7 @@ public class NewDeliveryServlet extends HttpServlet {
                     "            <option></option>\n" +
                     "        </select><br>\n" +
                     "        <input type=\"text\" placeholder=\"Enter Street\" name=\"street\" id=\"desstreet\" size=\"1\" required>\n" +
-                    "        <input type=\"text\" placeholder=\"Enter Block\" name=\"block\" id=\"desblock\" size=\"1\" required>\n" +
+                    "        <input type=\"text\" placeholder=\"Enter Block\" name=\"desblock\" id=\"desblock\" size=\"1\" required>\n" +
                     "\n" +
                     "        <label for=\"recPhone\"><b>Recipient's mobile number</b></label>\n" +
                     "        <input type=\"text\" placeholder=\"Enter Phone Number\" name=\"recPhone\" id=\"recPhone\" required>\n" +
