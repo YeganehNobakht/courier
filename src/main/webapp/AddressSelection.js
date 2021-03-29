@@ -17,6 +17,26 @@ function displaySelected() { var country = document.getElementById("countrySelec
     var city = document.getElementById("citySelect").value;
     alert(country+"\n"+city);
 }
+function originMakeSubmenu(value) {
+    if(value.length==0) document.getElementById("originCity").innerHTML = "<option></option>";
+    else {
+        var citiesOptions = "";
+        for(cityId in citiesByState[value]) {
+            citiesOptions+="<option>"+citiesByState[value][cityId]+"</option>";
+        }
+        document.getElementById("originCity").innerHTML = citiesOptions;
+    }
+}
+function destinationMakeSubmenu(value) {
+    if(value.length==0) document.getElementById("destinationCity").innerHTML = "<option></option>";
+    else {
+        var citiesOptions = "";
+        for(cityId in citiesByState[value]) {
+            citiesOptions+="<option>"+citiesByState[value][cityId]+"</option>";
+        }
+        document.getElementById("destinationCity").innerHTML = citiesOptions;
+    }
+}
 function resetSelection() {
     document.getElementById("countrySelect").selectedIndex = 0;
     document.getElementById("citySelect").selectedIndex = 0;
