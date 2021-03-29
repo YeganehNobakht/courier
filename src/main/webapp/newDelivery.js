@@ -54,3 +54,24 @@ function gold(){
     var x3 = weight.value*pricePerKg;
     document.getElementById("goldPriceResult").innerHTML = "price: "+x3;
 }
+var submit=false;
+$("#form").submit(function(event){
+    console.log("hello")
+    if(submit == true) {
+        event.preventDefault();
+    }
+});
+function submit_true() {
+    submit=true;
+}
+function submit_false() {
+    submit=false;
+}
+function openForm(event) {
+    document.getElementById("myForm").style.display = "block";
+    premium();
+    silver();
+    gold();
+    submit_true();
+    //event.preventDefault();
+}

@@ -109,9 +109,10 @@ public class NewDeliveryServlet extends HttpServlet {
                     "        <input type=\"text\" value=\"\" id=\"result\"/>\n" +
                     "        <input type=\"hidden\" id=\"actualResult\"/>\n" +
                     "\n" +
-                    "        <button class=\"open-button\" onclick=\"openForm()\" onsubmit=\"f()\" >Get price</button>\n" +
+                    "        <button class=\"open-button\" onclick=\"openForm()\" onsubmit=\"submit_true()\" >Get price</button>\n" +
                     "        <div class=\"form-popup\" id=\"myForm\">\n" +
                     "            <div class=\"form-container\">\n" +
+                    "                <h>Choose an option:</h><br>\n" +
                     "                <input type=\"radio\" id=\"premium\" name=\"prc\" value=\"premium\">\n" +
                     "                <label for=\"premium\"><h>Premium</h></label><br>\n" +
                     "                <p class = \"parag\" id=\"premiumPriceResult\" >price:</p>\n" +
@@ -133,39 +134,12 @@ public class NewDeliveryServlet extends HttpServlet {
                     "\n" +
                     "\n" +
                     "\n" +
-                    "    <button type=\"submit\" class=\"registerbtn\" onclick=\"_validate();f1();\" >Submit</button>\n" +
+                    "    <button type=\"submit\" class=\"registerbtn\" onclick=\"_validate();submit_false();\" >Submit</button>\n" +
                     "    </div>\n" +
                     "</form>\n" +
                     "\n" +
                     "<script src=\"newDelivery.js\"></script>\n" +
                     "<script src=\"Validity.js\"></script>\n" +
-                    "<script>\n" +
-                    "    var submit=false;\n" +
-                    "    $(\"#form\").submit(function(event){\n" +
-                    "        console.log(\"hello\")\n" +
-                    "        if(submit == true) {\n" +
-                    "            event.preventDefault();\n" +
-                    "        }\n" +
-                    "    });\n" +
-                    "function f() {\n" +
-                    "    console.log(\"hello again\")\n" +
-                    "submit=true;\n" +
-                    "}\n" +
-                    "    function f1() {\n" +
-                    "        console.log(\"hello again2\")\n" +
-                    "        submit=false;\n" +
-                    "    }\n" +
-                    "    function openForm(event) {\n" +
-                    "\n" +
-                    "        console.log(\"function open form\");\n" +
-                    "        document.getElementById(\"myForm\").style.display = \"block\";\n" +
-                    "        premium();\n" +
-                    "        silver();\n" +
-                    "        gold();\n" +
-                    "        f();\n" +
-                    "        //event.preventDefault();\n" +
-                    "    }\n" +
-                    "</script>\n" +
                     "</body>\n" +
                     "\n" +
                     "</html>");
