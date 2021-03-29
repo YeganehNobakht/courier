@@ -27,12 +27,12 @@ public class ServiceServlet extends HttpServlet {
                     "<body>\n" +
                     "<div class=\"button-item\">\n" +
                     "<a class=\"inner-button\"\n" +
-                    "   tabindex=\"0\" role=\"button\" aria-disabled=\"false\" title=\"New Delivery\" href=\"/newdelivery\"\n" +
+                    "   tabindex=\"0\" role=\"button\" aria-disabled=\"false\" title=\"New Delivery\" href=\"delivery\"\n" +
                     "   style=\"border-style: double\">\n" +
                     "    <div class=\"item-img\"><img src=\"newdelivery.jpg\" alt=\"\"></div></a>\n" +
                     "\n" +
                     "    <a class=\"inner-button\"\n" +
-                    "       tabindex=\"0\" role=\"button\" aria-disabled=\"false\" title=\"Track Order\" href=\"/trackorder\"\n" +
+                    "       tabindex=\"0\" role=\"button\" aria-disabled=\"false\" title=\"Track Order\" href=\"trackorder\"\n" +
                     "       style=\"border-style: double\">\n" +
                     "        <div class=\"item-img\"><img src=\"track.png\" alt=\"\"></div></a>\n" +
                     "</div>\n" +
