@@ -58,6 +58,104 @@ li a:hover {
     animation: zoom 0.6s;
 }
 
+.modal-content{
+    width: 30%;
+    background: #fff;
+    margin: 8% auto 15% auto;
+    border-radius: 3px;
+    box-shadow: 0 0 15px #555;
+    padding: 20px;
+    animation: zoom 0.6s;
+}
+
+.modal-img{
+    text-align: center;
+    position: relative;
+    margin: 20px 0 10px 0;
+    margin-bottom: 20px;
+}
+
+.modal-img img{
+    width: 40%;
+    box-shadow: 0 0 15px #666;
+    border-radius: 50%;
+}
+
+.item-img{
+    display: flex;
+    align-items: flex-end;
+    -webkit-box-pack: center;
+    justify-content: center;
+}
+
+.item-typo{
+    display: flex;
+    -webkit-box-align: center;
+    align-items: center;
+    -webkit-box-pack: center;
+    justify-content: center;
+}
+.inner-button{
+    border-radius: 15px;
+    overflow: hidden;
+    display: block;
+    text-align: center;
+    padding: 23px 15px 20px;
+    transition: all 0.25s ease 0s;
+}
+.button-item{
+    padding: 0px 5px;
+    margin-bottom: 10px;
+    width: 33.3333%;
+}
+
+.button {
+    background-color: #4CAF50; /* Green */
+    border: none;
+    color: white;
+    padding: 160px 100px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 30px;
+    margin: 40px 2px;
+    -webkit-transition-duration: 0.4s; /* Safari */
+    transition-duration: 0.4s;
+    cursor: pointer;
+}
+
+.button1 {
+    background-color: white;
+    color: black;
+    border: 2px solid #4CAF50;
+}
+
+.button1:hover {
+    background-color: #4CAF50;
+    color: white;
+}
+
+.button2 {
+    background-color: white;
+    color: black;
+    border: 2px solid #008CBA;
+}
+
+.button2:hover {
+    background-color: #008CBA;
+    color: white;
+}
+
+.dropdown-submenu {
+    position: relative;
+}
+
+.dropdown-submenu .dropdown-menu {
+    top: 0;
+    left: 100%;
+    margin-top: -1px;
+}
+
 /* Full-width input fields */
 input[type=text], input[type=password] {
     width: 100%;
@@ -83,7 +181,7 @@ hr {
 .registerbtn {
     background-color: #974caf;
     color: white;
-    padding: 3px 4px;
+    padding: 6px 4px;
     margin: 8px 0;
     border: none;
     cursor: pointer;
@@ -105,14 +203,18 @@ a {
     background-color: #f1f1f1;
     text-align: center;
 }
+
+
+
 .open-button {
-    background-color: #555;
+    background-color: #4caf52;
     color: white;
-    padding: 16px 20px;
+    padding: 6px 4px;
+    margin: 8px 0;
     border: none;
     cursor: pointer;
-    opacity: 0.8;
-    width: 280px;
+    width: 30%;
+    opacity: 0.9;
 }
 .form-popup {
     display: none;
@@ -124,12 +226,13 @@ a {
 .form-container {
     max-width: 300px;
     padding: 10px;
-    background-color: white;
+    background-color: #4a363608;
     position: absolute;
     left: 550px;
     width: 558px;
-    height: 200px;
+    height: 380px;
     top: -300px;
+    border-block: inherit;
 }
 
 /* Full-width input fields */
@@ -164,7 +267,7 @@ a {
 
 /* Add a red background color to the cancel button */
 .form-container .cancel {
-    background-color: red;
+    background-color: #4CAF50;
 }
 
 /* Add some hover effects to buttons */
