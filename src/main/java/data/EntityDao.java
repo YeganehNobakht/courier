@@ -53,12 +53,12 @@ public class EntityDao {
     public static OrderStatus fetchOrderByTrackingCode(int trackCode){
         Session session = sessionFactory.openSession();
         Transaction transaction = session.beginTransaction();
-        javax.persistence.Query query  = session.createQuery("from model.OrderStatus as c  where c.trackingCode= :c_trackingCode")
-                .setParameter("c_trackingCode",trackCode);
+        javax.persistence.Query query  = session.createQuery("from model.OrderStatus as c  where c.orderId= :c_orderId")
+                .setParameter("c_orderId",trackCode);
 
-        OrderStatus roomReservation = (OrderStatus) query.getResultList().stream().findFirst().orElse(null);;
+        OrderStatus orderStatus = (OrderStatus) query.getResultList().stream().findFirst().orElse(null);;
         transaction.commit();
         session.close();
-        return roomReservation;
+        return orderStatus;
     }
 }
