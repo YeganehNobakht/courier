@@ -26,11 +26,11 @@ public class NewDelivery {
     @Column
     private String sendType;
     @Column
-    private Date submitDate;
+    private String submitDate;
     @Column
     private int price;
 
-    public NewDelivery( String originAddress, String destinationAddress, String recipientsPhone, String recipientsName, String packageType, int packageWeight, String packageSize, String sendType, Date submitDate) {
+    public NewDelivery( String originAddress, String destinationAddress, String recipientsPhone, String recipientsName, String packageType, int packageWeight, String packageSize, String sendType, String submitDate) {
         this.originAddress = originAddress;
         this.destinationAddress = destinationAddress;
         RecipientsPhone = recipientsPhone;
@@ -122,5 +122,21 @@ public class NewDelivery {
 
     public void setSendType(String sendType) {
         this.sendType = sendType;
+    }
+
+    public String getSubmitDate() {
+        return submitDate;
+    }
+
+    public void setSubmitDate(String submitDate) {
+        this.submitDate = submitDate;
+    }
+
+    public int getPrice() {
+        return price;
+    }
+
+    public void setPrice(int price) {
+        this.price = price;
     }
 }
