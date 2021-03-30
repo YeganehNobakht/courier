@@ -72,7 +72,7 @@ public class SubmitServlet extends HttpServlet {
                     "    <div class=\"KM_wrapperStatusCart\"><img src=\"submit.png\"></div>\n" +
                     "    <div>Order with tracking code "+trackingCode+" was successfully registered</div>\n" +
                     "    <div class=\"KM_wrapperFollowUpOrder\">\n" +
-                    "        <a class=\"KM_FollowUpOrderLink\" href=\"trackOrder\" target=\"_blank\">Tracking Order</a>\n" +
+                    "        <a class=\"KM_FollowUpOrderLink\" href=\"trackorder\" target=\"_blank\">Tracking Order</a>\n" +
                     "        <a class=\"KM_returnHome\" href=\"service\">Return to home page</a></div>\n" +
                     "</div>\n" +
                     "</div>\n" +
