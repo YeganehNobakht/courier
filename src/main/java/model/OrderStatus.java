@@ -7,30 +7,33 @@ public class OrderStatus {
     @Id
     private int orderId;
     @Column(nullable = false)
-    private Date registerDate;
-    @Column(nullable = true)
-    private Date acceptDate;
-    @Column(nullable = true)
-    private Date sendingDate;
-    @Column(nullable = true)
-    private Date deliverDate;
+    private String registerDate;
     @Column(nullable = false)
     @Enumerated(EnumType.STRING)
     private OrderStates orderStates;
+    @Column(nullable = true)
+    private String acceptDate;
+    @Column(nullable = true)
+    private String sendingDate;
+    @Column(nullable = true)
+    private String deliverDate;
     @Column(nullable = false)
     private int employeeId;
 
-    public OrderStatus(int orderId, Date registerDate, Date acceptDate, Date sendingDate, Date deliverDate, OrderStates orderStates, int employeeId) {
+    public OrderStatus(int orderId, String registerDate, OrderStates orderStates) {
         this.orderId = orderId;
         this.registerDate = registerDate;
+        this.orderStates = orderStates;
+    }
+
+    public OrderStatus(int orderId, String registerDate, OrderStates orderStates, String acceptDate, String sendingDate, String deliverDate, int employeeId) {
+        this.orderId = orderId;
+        this.registerDate = registerDate;
+        this.orderStates = orderStates;
         this.acceptDate = acceptDate;
         this.sendingDate = sendingDate;
         this.deliverDate = deliverDate;
-        this.orderStates = orderStates;
         this.employeeId = employeeId;
-    }
-
-    public OrderStatus() {
     }
 
     public int getOrderId() {
@@ -41,36 +44,12 @@ public class OrderStatus {
         this.orderId = orderId;
     }
 
-    public Date getRegisterDate() {
+    public String getRegisterDate() {
         return registerDate;
     }
 
-    public void setRegisterDate(Date registerDate) {
+    public void setRegisterDate(String registerDate) {
         this.registerDate = registerDate;
-    }
-
-    public Date getAcceptDate() {
-        return acceptDate;
-    }
-
-    public void setAcceptDate(Date acceptDate) {
-        this.acceptDate = acceptDate;
-    }
-
-    public Date getSendingDate() {
-        return sendingDate;
-    }
-
-    public void setSendingDate(Date sendingDate) {
-        this.sendingDate = sendingDate;
-    }
-
-    public Date getDeliverDate() {
-        return deliverDate;
-    }
-
-    public void setDeliverDate(Date deliverDate) {
-        this.deliverDate = deliverDate;
     }
 
     public OrderStates getOrderStates() {
@@ -79,6 +58,30 @@ public class OrderStatus {
 
     public void setOrderStates(OrderStates orderStates) {
         this.orderStates = orderStates;
+    }
+
+    public String getAcceptDate() {
+        return acceptDate;
+    }
+
+    public void setAcceptDate(String acceptDate) {
+        this.acceptDate = acceptDate;
+    }
+
+    public String getSendingDate() {
+        return sendingDate;
+    }
+
+    public void setSendingDate(String sendingDate) {
+        this.sendingDate = sendingDate;
+    }
+
+    public String getDeliverDate() {
+        return deliverDate;
+    }
+
+    public void setDeliverDate(String deliverDate) {
+        this.deliverDate = deliverDate;
     }
 
     public int getEmployeeId() {
