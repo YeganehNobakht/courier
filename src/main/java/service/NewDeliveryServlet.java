@@ -60,7 +60,7 @@ public class NewDeliveryServlet extends HttpServlet {
                     "            <option></option>\n" +
                     "        </select><br>\n" +
                     "        <input type=\"text\" placeholder=\"Enter Street\" name=\"street\" id=\"desstreet\" size=\"1\" required>\n" +
-                    "        <input type=\"text\" placeholder=\"Enter Block\" name=\"desblock\" id=\"desblock\" size=\"1\" required>\n" +
+                    "        <input type=\"text\" placeholder=\"Enter Block\" name=\"block\" id=\"desblock\" size=\"1\" required>\n" +
                     "\n" +
                     "        <label for=\"recPhone\"><b>Recipient's mobile number</b></label>\n" +
                     "        <input type=\"text\" placeholder=\"Enter Phone Number\" name=\"recPhone\" id=\"recPhone\" required>\n" +
@@ -128,7 +128,7 @@ public class NewDeliveryServlet extends HttpServlet {
                     "                <button type=\"button\" class=\"btn cancel\" onclick=\"closeForm()\">Close</button>\n" +
                     "            </div>\n" +
                     "        </div>\n" +
-                    "        <input id=\"date-of-registration\" name=\"date-of-registration\" class=\"input\" type=hidden/>\n" +
+                    "        <input type=\"hidden\" name=\"startdate\" id=\"todayDate\"/>\n" +
                     "\n" +
                     "\n" +
                     "\n" +
@@ -142,9 +142,21 @@ public class NewDeliveryServlet extends HttpServlet {
                     "\n" +
                     "<script src=\"newDelivery.js\"></script>\n" +
                     "<script src=\"Validity.js\"></script>\n" +
-                    "<Script>var currentTime = new Date();\n" +
-                    "var curdate = currentTime.getDate();\n" +
-                    "document.getElementById(\"date-of-registration\").value = curdate;\n" +
+                    "<script type=\"text/javascript\">\n" +
+                    "    function getDate()\n" +
+                    "    {\n" +
+                    "        var today = new Date();\n" +
+                    "        var dd = today.getDate();\n" +
+                    "        var mm = today.getMonth()+1; //January is 0!\n" +
+                    "        var yyyy = today.getFullYear();\n" +
+                    "        if(dd<10){dd='0'+dd} if(mm<10){mm='0'+mm}\n" +
+                    "        today = yyyy+\"\"+mm+\"\"+dd;\n" +
+                    "\n" +
+                    "        document.getElementById(\"todayDate\").value = today;\n" +
+                    "    }\n" +
+                    "\n" +
+                    "    //call getDate() when loading the page\n" +
+                    "    getDate();\n" +
                     "</script>\n" +
                     "</body>\n" +
                     "\n" +
