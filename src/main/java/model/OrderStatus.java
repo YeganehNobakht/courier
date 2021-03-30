@@ -20,6 +20,9 @@ public class OrderStatus {
     @Column(nullable = false)
     private int employeeId;
 
+    public OrderStatus() {
+    }
+
     public OrderStatus(int orderId, String registerDate, OrderStates orderStates) {
         this.orderId = orderId;
         this.registerDate = registerDate;
