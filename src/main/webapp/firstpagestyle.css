@@ -98,9 +98,7 @@ li a:hover {
 .inner-button{
     border-radius: 15px;
     overflow: hidden;
-    display: block;
     text-align: center;
-    padding: 23px 15px 20px;
     transition: all 0.25s ease 0s;
 }
 .button-item{
@@ -194,7 +192,7 @@ hr {
 }
 
 /* Add a blue text color to links */
-a {
+.aColour{
     color: dodgerblue;
 }
 
@@ -291,13 +289,7 @@ style for submit page*/
     padding: 20px;
 }
 
-body {
-    direction: rtl;
-    color: #4a5f73;
-    background: #f5f5f5;
-    max-width: 100%;
-    overflow-x: hidden;
-}
+
 
 .km-pay-state-style {
     text-align: center;
@@ -330,7 +322,7 @@ body {
 
 
 body {
-    padding-top: 60px;
+    padding-top: 20px;
     padding-bottom: 50px;
 }
 
