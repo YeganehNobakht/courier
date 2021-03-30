@@ -2,6 +2,8 @@ package service;
 
 import data.EntityDao;
 import model.NewDelivery;
+import model.OrderStates;
+import model.OrderStatus;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -41,7 +43,7 @@ public class SubmitServlet extends HttpServlet {
            String packageType = request.getParameter("radioButton");
            String packageSize = request.getParameter("nDocOption");
            String sendType = request.getParameter("prc");
-           Date dateOfRegistration = Date.valueOf(request.getParameter("date-of-registration"));
+           String dateOfRegistration = request.getParameter("startdate");
 
            NewDelivery newDelivery = new NewDelivery(originAddress,desAddress,recPhone,recName,packageType,weight,packageSize,sendType,dateOfRegistration);
 
@@ -54,6 +56,9 @@ public class SubmitServlet extends HttpServlet {
                 newDelivery.setTrackingCode(trackingCode);
             }
 
+            OrderStatus orderStatus = new OrderStatus(trackingCode,dateOfRegistration, OrderStates.REGISTERED);
+
+            EntityDao.save(orderStatus);
             EntityDao.save(newDelivery);
             writer.println("<!DOCTYPE html>\n" +
                     "<html lang=\"en\">\n" +
@@ -65,7 +70,7 @@ public class SubmitServlet extends HttpServlet {
                     "<body>\n" +
                     "<div class=\"km-pay-state-style km-box-style2\">\n" +
                     "    <div class=\"KM_wrapperStatusCart\"><img src=\"submit.png\"></div>\n" +
-                    "    <div>Order \"trackingCode\" was successfully registered</div>\n" +
+                    "    <div>Order with tracking code "+trackingCode+" was successfully registered</div>\n" +
                     "    <div class=\"KM_wrapperFollowUpOrder\">\n" +
                     "        <a class=\"KM_FollowUpOrderLink\" href=\"trackOrder\" target=\"_blank\">Tracking Order</a>\n" +
                     "        <a class=\"KM_returnHome\" href=\"service\">Return to home page</a></div>\n" +
