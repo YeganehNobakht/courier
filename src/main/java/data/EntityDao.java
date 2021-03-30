@@ -2,6 +2,8 @@ package data;
 
 import model.Customer;
 import model.NewDelivery;
+import model.OrderStates;
+import model.OrderStatus;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.Transaction;
@@ -48,5 +50,15 @@ public class EntityDao {
         session.close();
         return trackingCode;
     }
+    public static OrderStatus fetchOrderByTrackingCode(int trackCode){
+        Session session = sessionFactory.openSession();
+        Transaction transaction = session.beginTransaction();
+        javax.persistence.Query query  = session.createQuery("from model.OrderStatus as c  where c.trackingCode= :c_trackingCode")
+                .setParameter("c_trackingCode",trackCode);
 
+        OrderStatus roomReservation = (OrderStatus) query.getResultList().stream().findFirst().orElse(null);;
+        transaction.commit();
+        session.close();
+        return roomReservation;
+    }
 }
