@@ -65,4 +65,31 @@
         <url-pattern>/submit</url-pattern>
     </servlet-mapping>
 
+    <servlet>
+        <servlet-name>TrackOrder</servlet-name>
+        <servlet-class>service.TrackOrderServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>TrackOrder</servlet-name>
+        <url-pattern>/TrackOrder</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>trackCode</servlet-name>
+        <servlet-class>service.TrackCodeServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>trackCode</servlet-name>
+        <url-pattern>/trackorder</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>LoginFromSignUpPageServlet</servlet-name>
+        <servlet-class>service.LoginFromSignUpPageServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>LoginFromSignUpPageServlet</servlet-name>
+        <url-pattern>/login2</url-pattern>
+    </servlet-mapping>
+
 </web-app>
