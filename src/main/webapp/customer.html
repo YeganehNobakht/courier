@@ -10,43 +10,43 @@
 <body>
 
 <form class="content" name="RegForm" action="login2"
-      onsubmit="return validation();" method="post">
+      onsubmit="return validateName()" method="post">
     <div class="container">
         <h1>Register</h1>
         <p>Please fill in this form to create an account.</p>
         <hr>
 
-        <label for="username"><b>Username</b></label>
-        <input type="text" placeholder="Enter Username" name="username" id="username" required>
+        <label for="username1"><b>Username</b></label>
+        <input type="text" placeholder="Enter Username" name="username1" id="username1" required>
 
-        <label for="email"><b>Email</b></label>
-        <input type="email" placeholder="Enter Email" name="email" id="email" required>
+        <label for="email1"><b>Email</b></label>
+        <input type="email" placeholder="Enter Email" name="email1" id="email1" required>
 
-        <label for="psw"><b>Password</b></label>
-        <input type="password" placeholder="Enter Password" name="psw" id="psw" required>
+        <label for="psw1"><b>Password</b></label>
+        <input type="password" placeholder="Enter Password" name="psw1" id="psw1" required>
 
-        <label for="name"><b>Name</b></label>
-        <input type="text" placeholder="Enter Name" name="name" id="name" required>
+        <label for="name1"><b>Name</b></label>
+        <input type="text" placeholder="Enter Name" name="name1" id="name1" required>
 
-        <label for="lastName"><b>Last Name</b></label>
-        <input type="text" placeholder="Enter Last Name" name="lastName" id="lastName" required>
+        <label for="lastName1"><b>Last Name</b></label>
+        <input type="text" placeholder="Enter Last Name" name="lastName1" id="lastName1" required>
 
         <label for="mobileNumber"><b>Phone</b></label>
         <input type="text" placeholder="Enter mobile number" name="mobileNumber" id="mobileNumber" required>
 
         <label ><b>Address</b></label><br>
-        <select id="countrySelect" size="1" onchange="makeSubmenu(this.value)">
+        <select id="province" name="province" size="1" onchange="makeSubmenu(this.value)">
             <option value="" disabled selected>Choose State</option>
             <option>Tehran</option>
             <option>Isfahan</option>
             <option>Alborz</option>
         </select>
-        <select id="citySelect" size="1" >
+        <select id="citySelect" name="citySelect" size="1" >
             <option value="" disabled selected>Choose City</option>
             <option></option>
         </select><br>
-        <input type="text" placeholder="Enter Street" name="street" id="street" size="50%" required>
-        <input type="text" placeholder="Enter Block" name="block" id="block" size="50%" required>
+        <input type="text" placeholder="Enter Street" name="customerStreet" id="customerStreet" size="50%" required>
+        <input type="text" placeholder="Enter Block" name="customerBlock" id="customerBlock" size="50%" required>
 
         <label id="queryString"></label>
         <input type="text" value="" id="result"/>
@@ -63,7 +63,7 @@
 
     <p>By creating an account you agree to our <a class="aColour" href="#">Terms & Privacy</a>.</p>
 
-    <button type="submit" class="registerbtn" onclick="_validate() ;return validation();">Register</button>
+    <button type="submit" class="registerbtn" onclick="_validate() ;">Register</button>
     </div>
 
     <div class="container signin">
