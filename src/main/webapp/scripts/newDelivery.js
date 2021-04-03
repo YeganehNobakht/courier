@@ -1,20 +1,18 @@
-window.document.getElementById("noOptions").style.display = "block";
-window.document.getElementById("allOptions").style.display = "none";
 function changeOptions() {
     var form = window.document.getElementById("form");
-    var docOption = window.document.getElementById("docOption");
-    var nDocOption = window.document.getElementById("nDocOption");
-
-    window.document.getElementById("noOptions").style.display = "none";
+    var docOption = window.document.getElementById("length");
+    var nDocOption = window.document.getElementById("width");
+    var nwDocOption = window.document.getElementById("height");
 
     if (form.radioButton1.checked) {
-        nDocOption.style.display = "none";
-        docOption.style.display = "non";
-        docOption.selectedIndex = 0;
-    } else if (form.radioButton2.checked) {
         docOption.style.display = "none";
-        nDocOption.style.display = "block";
-        nDocOption.selectedIndex = 0;
+        nDocOption.style.display = "none";
+        nwDocOption.style.display = "none";
+
+    } else if (form.radioButton2.checked) {
+        docOption.style.display = "";
+        nDocOption.style.display = "";
+        nwDocOption.style.display = "";
     }
 
 }
@@ -74,4 +72,5 @@ function openForm(event) {
     gold();
     submit_true();
     //event.preventDefault();
+    document.getElementById("submit").disabled = false;
 }
