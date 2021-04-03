@@ -16,7 +16,7 @@ function validation() {
 
     var nameRegex = /^[a-zA-Z ]{2,30}$/;
     var phoneRegex = /^[0-9]{11}$/;
-    var emailRegex = /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,6}$/;
+    var emailRegex = /^\w+@[a-zA-Z_]+?\.[a-zA-Z]{2,3}$/;
 
     /*if (name.value == "") {
         window.alert("Please enter your name.");
@@ -49,22 +49,24 @@ function validation() {
         password.focus();
         return false;
     }*/
-    if (!nameRegex.test(name.value)){
+    if (nameRegex.test(name.value)===false){
         window.alert("Wrong name format");
         return false;
     }
-    if (!nameRegex.test(lastName.value)){
+
+    if (emailRegex.test(email.value)===false){
+        window.alert("Wrong email format");
+        return false;
+    }
+    if (nameRegex.test(lastName.value)===false){
         window.alert("Wrong last name format");
         return false;
     }
-     if (!phoneRegex.test(phone.value)){
+     if (phoneRegex.test(phone.value)===false){
             window.alert("Wrong phone number format");
             return false;
     }
-    if (!emailRegex.test(email.value)){
-            window.alert("Wrong email format");
-            return false;
-    }
+
 
     return true;
 }
