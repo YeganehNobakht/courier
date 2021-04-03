@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html>
-  <link rel="stylesheet" href="firstpagestyle.css">
+  <link rel="stylesheet" href="styles/firstpagestyle.css">
   <head>
     <meta charset="UTF-8">
     <title>first page</title>
