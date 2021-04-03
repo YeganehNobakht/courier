@@ -19,14 +19,29 @@ public class LoginFromSignUpPageServlet extends HttpServlet {
         PrintWriter writer = response.getWriter();
 
         try {
-            String username = request.getParameter("username");
-            String password = request.getParameter("password");
+            String username = request.getParameter("username1");
+            String password = request.getParameter("psw1");
+            String mail = request.getParameter("mail1");
+            String name1 = request.getParameter("name1");
+            String lastName1 = request.getParameter("lastName1");
+            String mobileNumber = request.getParameter("mobileNumber");
+            String province = request.getParameter("Province");
+            String city = request.getParameter("citySelect");
+            String street = request.getParameter("customerStreet");
+            String block = request.getParameter("customerBlock");
+
 
             if (username != null && password !=null ) {
-                Customer customer = EntityDao.fetchCustomerByUsername(username);
+                //TODO transport to service class
+                String address = province+", "+city+"', "+street+", "+block;
+                Customer customer = new Customer(username,password,name1,lastName1,mail,mobileNumber,address);
+                EntityDao.save(customer);
+
+                //create session
                 HttpSession session = request.getSession();
-                session.setAttribute("name", customer.getName());
+                session.setAttribute("name", name1);
                 request.getRequestDispatcher("/service").include(request, response);
+
             }
             else {
                 HttpSession session = request.getSession(false);
