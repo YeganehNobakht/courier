@@ -27,13 +27,13 @@ public class TrackCodeServlet extends HttpServlet {
                     "</head>\n" +
                     "<body>\n" +
                     "<div class=\"content\">\n" +
-                    "    <form  method=\"post\">\n" +
+                    "    <form  method=\"post\" action=\"TrackOrder\">\n" +
                     "\n" +
-                    "        <center >\n" +
-                    "            <img src=\"trackCode1.png\" style=\"width: 200px;height: 200px;\" alt=\"\">\n" +
-                    "        </center>\n" +
+                    "        <div class=\"modal-img\">\n" +
+                    "            <img src=\"trackCode1.png\" style=\"width: 256px;height: 256px;\" alt=\"\">\n" +
+                    "        </div>\n" +
                     "            <center>\n" +
-                    "            <input  type=\"text\" name=\"customerTrack\" placeholder=\"Enter Your Track Code\">\n" +
+                    "            <input type=\"text\" name=\"customerTrack\" placeholder=\"Enter Your Track Code\">\n" +
                     "            <button type=\"submit\">Tracking</button>\n" +
                     "            </center>\n" +
                     "            <br><br>\n" +

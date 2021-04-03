@@ -19,11 +19,12 @@ public class NewDeliveryServlet extends HttpServlet {
             writer.println("Welcome "+session.getAttribute("name"));
             writer.println("<!DOCTYPE html>\n" +
                     "<html lang=\"en\">\n" +
-                    "<link rel=\"stylesheet\" href=\"firstpagestyle.css\">\n" +
+                    "<link rel=\"stylesheet\" href=\"styles/firstpagestyle.css\">\n" +
                     "<head>\n" +
                     "    <meta charset=\"UTF-8\">\n" +
                     "    <title>delivery</title>\n" +
-                    "    <script src=\"AddressSelection.js\"></script>\n" +
+                    "    <script src=\"scripts/AddressSelection.js\"></script>\n" +
+                    "    <script src=\"scripts/newDelivery.js\"></script>\n" +
                     "</head>\n" +
                     "<script src=\"https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js\"></script>\n" +
                     "<body onload=\"resetSelection()\">\n" +
@@ -69,45 +70,28 @@ public class NewDeliveryServlet extends HttpServlet {
                     "        <input type=\"text\" placeholder=\"Enter Name\" name=\"recName\" id=\"recName\" required>\n" +
                     "\n" +
                     "        <label for=\"weight\"><b>Package Weight</b></label>\n" +
-                    "        <input type=\"number\" placeholder=\"Enter Package Weight\" name=\"weight\" id=\"weight\" value=\"0\" required><br>\n" +
+                    "        <input type=\"number\" placeholder=\"Enter Package Weight\" name=\"weight\" id=\"weight\"  required><br>\n" +
                     "\n" +
                     "        <input type=\"radio\" id=\"radioButton1\" name=\"radioButton\" value=\"Documentary\" />\n" +
                     "        <label for=\"radioButton1\">Documentary</label><br>\n" +
-                    "        <input type=\"radio\" id=\"radioButton2\" name=\"radioButton\" value=\"Non-documentary\" />\n" +
-                    "        <label for=\"radioButton2\">Non-documentary</label>\n" +
+                    "        <input type=\"radio\" id=\"radioButton2\" name=\"radioButton\" value=\"Non-documented\" />\n" +
+                    "        <label for=\"radioButton2\">Non-documented</label><br>\n" +
                     "\n" +
-                    "        <select name=\"noOptions\" id=\"noOptions\" style=\"display: none\">\n" +
-                    "            <option value=\"Choose an Option\" selected=\"selected\">Choose an Option</option>\n" +
+                    "        <label><b>Package Size</b></label><br>\n" +
+                    "        <input type=\"text\" placeholder=\"Enter Package Length\" name=\"length\" id=\"length\" >\n" +
+                    "        <input type=\"text\" placeholder=\"Enter Package Width\" name=\"width\" id=\"width\" >\n" +
+                    "        <input type=\"text\" placeholder=\"Enter Package Height\" name=\"weight\" id=\"height\" ><br>\n" +
+                    "\n" +
+                    "        <label for=\"content\"><b>Package Content</b></label>\n" +
+                    "        <select name=\"content\" id=\"content\" required>\n" +
+                    "            <option value=\"document\">Document</option>\n" +
+                    "            <option value=\"PC\">PC</option>\n" +
+                    "            <option value=\"furniture\">Home Furniture</option>\n" +
                     "        </select>\n" +
                     "\n" +
-                    "        <select name=\"docOption\" id=\"docOption\" style=\"display: none\">\n" +
-                    "            <option value=\"Choose an Option\" selected=\"selected\"></option>\n" +
-                    "        </select>\n" +
-                    "\n" +
-                    "        <select name=\"nDocOption\" id=\"nDocOption\" style=\"display: none\" required>\n" +
-                    "            <option value=\"Choose an Option\" selected=\"selected\" >Select the package size</option>\n" +
-                    "            <option value=\"nDocOption1\">50cm * 50cm</option>\n" +
-                    "            <option value=\"nDocOption2\">100cm * 50cm</option>\n" +
-                    "            <option value=\"nDocOption3\">100cm * 100cm</option>\n" +
-                    "            <option value=\"nDocOption4\">150cm * 100cm</option>\n" +
-                    "            <option value=\"nDocOption5\">150cm * 150cm</option>\n" +
-                    "        </select>\n" +
-                    "\n" +
-                    "        <select name=\"allOptions\" id=\"allOptions\" style=\"display: block\">\n" +
-                    "            <option value=\"Choose an Option\" selected=\"selected\">Select the package size</option>\n" +
-                    "            <option value=\"nDocOption1\">50cm * 50cm * 50cm</option>\n" +
-                    "            <option value=\"nDocOption2\">100cm * 50cm * 50cm</option>\n" +
-                    "            <option value=\"nDocOption3\">100cm * 100cm * 50cm</option>\n" +
-                    "            <option value=\"nDocOption4\">150cm * 100cm * 100cm</option>\n" +
-                    "            <option value=\"nDocOption5\">150cm * 150cm * 100cm</option>\n" +
-                    "        </select><br>\n" +
                     "\n" +
                     "\n" +
                     "\n" +
-                    "        <label ><b>Summation</b></label>\n" +
-                    "        <label id=\"queryString\"></label>\n" +
-                    "        <input type=\"text\" value=\"\" id=\"result\"/>\n" +
-                    "        <input type=\"hidden\" id=\"actualResult\"/>\n" +
                     "\n" +
                     "        <button class=\"open-button\" onclick=\"openForm()\" onsubmit=\"submit_true()\" >Get price</button>\n" +
                     "        <div class=\"form-popup\" id=\"myForm\">\n" +
@@ -115,15 +99,15 @@ public class NewDeliveryServlet extends HttpServlet {
                     "                <h>Choose an option:</h><br>\n" +
                     "                <input type=\"radio\" id=\"premium\" name=\"prc\" value=\"premium\">\n" +
                     "                <label for=\"premium\"><h>Premium</h></label><br>\n" +
-                    "                <p class = \"parag\" id=\"premiumPriceResult\" >price:</p>\n" +
+                    "                <p class = \"parag\" id=\"premiumPriceResult\" >price per Kg: 20000T</p>\n" +
                     "                <p class = \"parag\">delivery day: 1 day</p>\n" +
                     "                <input type=\"radio\" id=\"gold\" name=\"prc\" value=\"gold\">\n" +
                     "                <label for=\"gold\">Gold</label><br>\n" +
-                    "                <p class = \"parag\" id=\"goldPriceResult\" >price:</p>\n" +
+                    "                <p class = \"parag\" id=\"goldPriceResult\" >price per Kg: 14000T</p>\n" +
                     "                <p class = \"parag\">delivery day: 3 days</p>\n" +
                     "                <input type=\"radio\" id=\"silver\" name=\"prc\" value=\"silver\">\n" +
                     "                <label for=\"silver\">Silver</label>\n" +
-                    "                <p class = \"parag\" id=\"silverPriceResult\" >price:</p>\n" +
+                    "                <p class = \"parag\" id=\"silverPriceResult\" >price per Kg: 10000T</p>\n" +
                     "                <p class = \"parag\">delivery day: 4 days</p>\n" +
                     "                <button type=\"button\" class=\"btn cancel\" onclick=\"closeForm()\">Close</button>\n" +
                     "            </div>\n" +
@@ -134,14 +118,17 @@ public class NewDeliveryServlet extends HttpServlet {
                     "\n" +
                     "    </div><hr>\n" +
                     "\n" +
+                    "    <label ><b>Summation</b></label>\n" +
+                    "    <label id=\"queryString\"></label>\n" +
+                    "    <input type=\"text\" value=\"\" id=\"result\"/>\n" +
+                    "    <input type=\"hidden\" id=\"actualResult\"/>\n" +
                     "\n" +
-                    "\n" +
-                    "    <button type=\"submit\" class=\"registerbtn\" onclick=\"_validate();submit_false();\" >Submit</button>\n" +
+                    "    <button type=\"submit\" class=\"registerbtn\" onclick=\"_validate();submit_false()\" disabled=\"true\" id=\"submit\">Submit</button>\n" +
                     "    </div>\n" +
                     "</form>\n" +
                     "\n" +
-                    "<script src=\"newDelivery.js\"></script>\n" +
-                    "<script src=\"Validity.js\"></script>\n" +
+                    "<script src=\"scripts/newDelivery.js\"></script>\n" +
+                    "<script src=\"scripts/Validity.js\"></script>\n" +
                     "<script type=\"text/javascript\">\n" +
                     "    function getDate()\n" +
                     "    {\n" +
