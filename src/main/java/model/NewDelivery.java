@@ -40,11 +40,11 @@ public class NewDelivery {
         this.packageSize = packageSize;
         this.sendType = sendType;
         this.submitDate = submitDate;
-        if (packageType.equalsIgnoreCase("premium"))
+        if (sendType.equalsIgnoreCase("premium"))
             this.price = 20000 * packageWeight;
-        if (packageType.equalsIgnoreCase("gold"))
+        if (sendType.equalsIgnoreCase("gold"))
             this.price = 14000 * packageWeight;
-        if (packageType.equalsIgnoreCase("silver"))
+        if (sendType.equalsIgnoreCase("silver"))
             this.price = 10000 * packageWeight;
 
     }

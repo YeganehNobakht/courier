@@ -18,12 +18,10 @@ public class LogoutServlet extends HttpServlet {
         HttpSession session = request.getSession(false);
         if (session.getAttribute("name") != null) {
             session.invalidate();
-            writer.println("You are successfully logged out");
-            writer.println("<br><a href='customer.html'>Login</a>");
+            request.getRequestDispatcher("index.jsp").include(request, response);
         }
         else {
-            writer.println("Please login first.");
-            request.getRequestDispatcher("customer.html").include(request, response);
+            request.getRequestDispatcher("index.jsp").include(request, response);
         }
         writer.println("</html></body>");
         writer.close();

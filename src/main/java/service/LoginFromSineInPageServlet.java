@@ -1,6 +1,6 @@
 package service;
 
-import data.EntityDao;
+import data.CustomerDao;
 import model.Customer;
 
 import javax.servlet.ServletException;
@@ -23,7 +23,7 @@ public class LoginFromSineInPageServlet extends HttpServlet {
             String password = request.getParameter("password");
 
             if (username != null && password !=null ) {
-                Customer customer = EntityDao.fetchCustomerByUsername(username);
+                Customer customer = CustomerDao.fetchCustomerByUsername(username);
                 HttpSession session = request.getSession();
                 session.setAttribute("name", customer.getName());
                 request.getRequestDispatcher("/service").include(request, response);
