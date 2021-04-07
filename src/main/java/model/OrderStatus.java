@@ -17,19 +17,32 @@ public class OrderStatus {
     private String sendingDate;
     @Column(nullable = true)
     private String deliverDate;
+    @Column(nullable = false, unique = true)
+    private String employeeId;
     @Column(nullable = false)
-    private int employeeId;
+    private String customerUsername;
+
 
     public OrderStatus() {
     }
 
-    public OrderStatus(int orderId, String registerDate, OrderStates orderStates) {
+    public OrderStatus(int orderId, OrderStates orderStates, String acceptDate, String sendingDate, String deliverDate, String employeeId) {
+        this.orderId = orderId;
+        this.orderStates = orderStates;
+        this.acceptDate = acceptDate;
+        this.sendingDate = sendingDate;
+        this.deliverDate = deliverDate;
+        this.employeeId = employeeId;
+    }
+
+    public OrderStatus(int orderId, String registerDate, OrderStates orderStates, String customerUsername) {
         this.orderId = orderId;
         this.registerDate = registerDate;
         this.orderStates = orderStates;
+        this.customerUsername = customerUsername;
     }
 
-    public OrderStatus(int orderId, String registerDate, OrderStates orderStates, String acceptDate, String sendingDate, String deliverDate, int employeeId) {
+    public OrderStatus(int orderId, String registerDate, OrderStates orderStates, String acceptDate, String sendingDate, String deliverDate, String employeeId) {
         this.orderId = orderId;
         this.registerDate = registerDate;
         this.orderStates = orderStates;
@@ -87,11 +100,19 @@ public class OrderStatus {
         this.deliverDate = deliverDate;
     }
 
-    public int getEmployeeId() {
+    public String getEmployeeId() {
         return employeeId;
     }
 
-    public void setEmployeeId(int employeeId) {
+    public void setEmployeeId(String employeeId) {
         this.employeeId = employeeId;
+    }
+
+    public String getCustomerUsername() {
+        return customerUsername;
+    }
+
+    public void setCustomerUsername(String customerUsername) {
+        this.customerUsername = customerUsername;
     }
 }
