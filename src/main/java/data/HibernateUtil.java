@@ -1,9 +1,6 @@
 package data;
 
-import model.Customer;
-import model.Employee;
-import model.NewDelivery;
-import model.OrderStatus;
+import model.*;
 import org.hibernate.SessionFactory;
 import org.hibernate.boot.registry.StandardServiceRegistryBuilder;
 import org.hibernate.cfg.Configuration;
@@ -18,6 +15,7 @@ public class HibernateUtil {
             configuration.addAnnotatedClass(OrderStatus.class);
             configuration.addAnnotatedClass(Employee.class);
             configuration.addAnnotatedClass(NewDelivery.class);
+            configuration.addAnnotatedClass(Manager.class);
             configuration.setProperties(new Properties(){
                 {
                     put("hibernate.connection.driver_class","com.mysql.jdbc.Driver");
