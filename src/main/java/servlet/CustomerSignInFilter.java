@@ -1,11 +1,10 @@
-package service;
+package servlet;
 
-import data.EntityDao;
+import data.CustomerDao;
 import model.Customer;
 
 import javax.servlet.*;
 import javax.servlet.annotation.WebFilter;
-import javax.servlet.http.HttpSession;
 import java.io.IOException;
 import java.io.PrintWriter;
 
@@ -21,7 +20,7 @@ public class CustomerSignInFilter implements Filter {
         try {
             String username = req.getParameter("username");
             String password = req.getParameter("password");
-            Customer customer = EntityDao.fetchCustomerByUsername(username);
+            Customer customer = CustomerDao.fetchCustomerByUsername(username);
 
             if (customer != null && customer.getPassword().equals(password)) {
                 chain.doFilter(req, resp);
