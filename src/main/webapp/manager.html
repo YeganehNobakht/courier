@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<link rel="stylesheet" href="styles/firstpagestyle.css">
+<head>
+    <meta charset="UTF-8">
+    <title>Employee sign in</title>
+</head>
+<body>
+<div class="header">
+    <h1>Chappar Courier</h1>
+</div>
+<ul>
+    <li><a class="active" href="index.jsp">Home</a></li>
+</ul>
+<div class="content">
+    <form action="managerSignInPage" method="post">
+
+        <div class="modal-img">
+            <img src="images/user.png" alt="">
+        </div>
+
+        <input type="text" name="username" placeholder="Enter Your User Name" required>
+        <input type="password" name="password" placeholder="Enter Your Password" required>
+        <button type="submit">Login</button>
+        <br><br>
+        <input type="checkbox" checked>Remember Me
+    </form>
+</div>
+</body>
+</html>
