@@ -11,6 +11,7 @@
         <servlet-name>customerPageSignUp</servlet-name>
         <url-pattern>/customer</url-pattern>
     </servlet-mapping>
+
     <servlet>
         <servlet-name>customerPageSignIn</servlet-name>
         <jsp-file>/customerSignIn.html</jsp-file>
@@ -22,7 +23,7 @@
 
     <servlet>
         <servlet-name>loginFromSignIn</servlet-name>
-        <servlet-class>service.LoginFromSineInPageServlet</servlet-class>
+        <servlet-class>servlet.LoginFromSineInPageServlet</servlet-class>
     </servlet>
     <servlet-mapping>
         <servlet-name>loginFromSignIn</servlet-name>
@@ -31,7 +32,7 @@
 
     <filter>
         <filter-name>signInCheck</filter-name>
-        <filter-class>service.CustomerSignInFilter</filter-class>
+        <filter-class>servlet.CustomerSignInFilter</filter-class>
     </filter>
     <filter-mapping>
         <filter-name>signInCheck</filter-name>
@@ -40,16 +41,16 @@
 
     <servlet>
         <servlet-name>service</servlet-name>
-        <servlet-class>service.ServiceServlet</servlet-class>
+        <servlet-class>servlet.ServiceServlet</servlet-class>
     </servlet>
     <servlet-mapping>
         <servlet-name>service</servlet-name>
-        <url-pattern>/service</url-pattern>
+        <url-pattern>/servlet</url-pattern>
     </servlet-mapping>
 
     <servlet>
         <servlet-name>newdelivery</servlet-name>
-        <servlet-class>service.NewDeliveryServlet</servlet-class>
+        <servlet-class>servlet.NewDeliveryServlet</servlet-class>
     </servlet>
     <servlet-mapping>
         <servlet-name>newdelivery</servlet-name>
@@ -58,7 +59,7 @@
 
     <servlet>
         <servlet-name>submit</servlet-name>
-        <servlet-class>service.SubmitServlet</servlet-class>
+        <servlet-class>servlet.SubmitServlet</servlet-class>
     </servlet>
     <servlet-mapping>
         <servlet-name>submit</servlet-name>
@@ -67,7 +68,7 @@
 
     <servlet>
         <servlet-name>TrackOrder</servlet-name>
-        <servlet-class>service.TrackOrderServlet</servlet-class>
+        <servlet-class>servlet.TrackOrderServlet</servlet-class>
     </servlet>
     <servlet-mapping>
         <servlet-name>TrackOrder</servlet-name>
@@ -76,7 +77,7 @@
 
     <servlet>
         <servlet-name>trackCode</servlet-name>
-        <servlet-class>service.TrackCodeServlet</servlet-class>
+        <servlet-class>servlet.TrackCodeServlet</servlet-class>
     </servlet>
     <servlet-mapping>
         <servlet-name>trackCode</servlet-name>
@@ -85,11 +86,100 @@
 
     <servlet>
         <servlet-name>LoginFromSignUpPageServlet</servlet-name>
-        <servlet-class>service.LoginFromSignUpPageServlet</servlet-class>
+        <servlet-class>servlet.LoginFromSignUpPageServlet</servlet-class>
     </servlet>
     <servlet-mapping>
         <servlet-name>LoginFromSignUpPageServlet</servlet-name>
         <url-pattern>/login2</url-pattern>
     </servlet-mapping>
 
+    <servlet>
+        <servlet-name>employeeSignIn</servlet-name>
+        <servlet-class>servlet.EmployeeSignInServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>employeeSignIn</servlet-name>
+        <url-pattern>/employeesSignInPage</url-pattern>
+    </servlet-mapping>
+
+    <filter>
+        <filter-name>employeeSignInFilter</filter-name>
+        <filter-class>servlet.EmployeeSignInFilter</filter-class>
+    </filter>
+    <filter-mapping>
+        <filter-name>employeeSignInFilter</filter-name>
+        <url-pattern>/employeesSignInPage</url-pattern>
+    </filter-mapping>
+
+    <servlet>
+        <servlet-name>employeeServices</servlet-name>
+        <jsp-file>/employeeServices.jsp</jsp-file>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>employeeServices</servlet-name>
+        <url-pattern>/employeeServices</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>accepted</servlet-name>
+        <jsp-file>/acceptedOrder.jsp</jsp-file>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>accepted</servlet-name>
+        <url-pattern>/accepted</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>accepted_</servlet-name>
+        <jsp-file>/takeMoreOrder.jsp</jsp-file>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>accepted_</servlet-name>
+        <url-pattern>/takeMoreOrder</url-pattern>
+    </servlet-mapping>
+
+<!--    <servlet>-->
+<!--        <servlet-name>accept</servlet-name>-->
+<!--        <servlet-class>servlet.AcceptOrderServlet</servlet-class>-->
+<!--    </servlet>-->
+<!--    <servlet-mapping>-->
+<!--        <servlet-name>accept</servlet-name>-->
+<!--        <url-pattern>/acceptOrder</url-pattern>-->
+<!--    </servlet-mapping>-->
+
+    <servlet>
+        <servlet-name>logout</servlet-name>
+        <servlet-class>servlet.LogoutServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>logout</servlet-name>
+        <url-pattern>/logout</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>managerSignIn</servlet-name>
+        <servlet-class>servlet.ManagerSignInServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>managerSignIn</servlet-name>
+        <url-pattern>/managerSignInPage</url-pattern>
+    </servlet-mapping>
+
+    <filter>
+        <filter-name>managerSignInFilter</filter-name>
+        <filter-class>servlet.ManagerSignInFilter</filter-class>
+    </filter>
+    <filter-mapping>
+        <filter-name>managerSignInFilter</filter-name>
+        <url-pattern>/managerSignInPage</url-pattern>
+    </filter-mapping>
+
+    <servlet>
+        <servlet-name>addEmployee</servlet-name>
+        <servlet-class>servlet.AddNewEmployeeServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>addEmployee</servlet-name>
+        <url-pattern>/addEmployee</url-pattern>
+    </servlet-mapping>
 </web-app>
