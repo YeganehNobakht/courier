@@ -1,9 +1,6 @@
 package data;
 
-import model.Customer;
-import model.NewDelivery;
-import model.OrderStates;
-import model.OrderStatus;
+import model.*;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.Transaction;
@@ -12,8 +9,9 @@ import org.hibernate.query.Query;
 import javax.persistence.criteria.CriteriaBuilder;
 import javax.persistence.criteria.CriteriaQuery;
 import javax.persistence.criteria.Root;
+import java.util.List;
 
-public class EntityDao {
+public class CustomerDao {
     private static SessionFactory sessionFactory = HibernateUtil.buildSessionFactory();
 
     public static void save(Object object){
@@ -34,10 +32,20 @@ public class EntityDao {
         Transaction transaction = session.beginTransaction();
         javax.persistence.Query query  = session.createQuery("from model.Customer as c  where c.username= :c_username")
                 .setParameter("c_username",username);
-        Customer roomReservation = (Customer) query.getResultList().stream().findFirst().orElse(null);;
+        Customer customer = (Customer) query.getResultList().stream().findFirst().orElse(null);;
         transaction.commit();
         session.close();
-        return roomReservation;
+        return customer;
+    }
+    public static Customer fetchCustomerByEmail(String username){
+        Session session = sessionFactory.openSession();
+        Transaction transaction = session.beginTransaction();
+        javax.persistence.Query query  = session.createQuery("from model.Customer as c  where c.email = :c_email")
+                .setParameter("c_email",username);
+        Customer customer = (Customer) query.getResultList().stream().findFirst().orElse(null);;
+        transaction.commit();
+        session.close();
+        return customer;
     }
     public static Integer getMaxReserveNumber(){
         Session session = sessionFactory.openSession();
@@ -50,15 +58,15 @@ public class EntityDao {
         session.close();
         return trackingCode;
     }
-    public static OrderStatus fetchOrderByTrackingCode(int trackCode){
+    public static List<Customer> getAllRecords(){
         Session session = sessionFactory.openSession();
-        Transaction transaction = session.beginTransaction();
-        javax.persistence.Query query  = session.createQuery("from model.OrderStatus as c  where c.orderId= :c_orderId")
-                .setParameter("c_orderId",trackCode);
-
-        OrderStatus orderStatus = (OrderStatus) query.getResultList().stream().findFirst().orElse(null);;
-        transaction.commit();
-        session.close();
-        return orderStatus;
+        CriteriaBuilder criteriaBuilder = session.getCriteriaBuilder();
+        CriteriaQuery<Customer> criteriaQuery = criteriaBuilder.createQuery(Customer.class);
+        Root<Customer> root = criteriaQuery.from(Customer.class);
+        criteriaQuery.select(root);
+        Query<Customer> query = session.createQuery(criteriaQuery);
+        List<Customer> weatherModelList = query.getResultList();
+        return weatherModelList;
     }
+
 }

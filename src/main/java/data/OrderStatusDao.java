@@ -48,4 +48,15 @@ public class OrderStatusDao {
         session.close();
         return orderStatus;
     }
+    public static List<OrderStatus> fetchOrderByCustomerId(String customerId){
+        Session session = sessionFactory.openSession();
+        Transaction transaction = session.beginTransaction();
+        javax.persistence.Query query  = session.createQuery("from model.OrderStatus as c  where c.customerUsername= :c_customerUsername")
+                .setParameter("c_customerUsername",customerId);
+
+        List<OrderStatus> orderStatus =  query.getResultList();
+        transaction.commit();
+        session.close();
+        return orderStatus;
+    }
 }

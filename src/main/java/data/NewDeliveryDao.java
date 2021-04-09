@@ -1,6 +1,7 @@
 package data;
 
 import model.NewDelivery;
+import model.OrderStatus;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.Transaction;
@@ -34,5 +35,16 @@ public class NewDeliveryDao {
         transaction.commit();
         session.close();
         return countUpdate;
+    }
+    public static List<NewDelivery> fetchOrderByCustomerId(String customerId){
+        Session session = sessionFactory.openSession();
+        Transaction transaction = session.beginTransaction();
+        javax.persistence.Query query  = session.createQuery("from model.NewDelivery as c  where c.customerUsername= :c_customerUsername")
+                .setParameter("c_customerUsername",customerId);
+
+        List<NewDelivery> orderStatus =  query.getResultList();
+        transaction.commit();
+        session.close();
+        return orderStatus;
     }
 }
