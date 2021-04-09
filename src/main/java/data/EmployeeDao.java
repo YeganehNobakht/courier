@@ -2,22 +2,24 @@ package data;
 
 import model.Customer;
 import model.Employee;
+import model.NewDelivery;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.Transaction;
+import org.hibernate.query.Query;
+
+import javax.persistence.criteria.CriteriaBuilder;
+import javax.persistence.criteria.CriteriaQuery;
+import javax.persistence.criteria.Root;
+import java.util.List;
 
 public class EmployeeDao {
     private static SessionFactory sessionFactory = HibernateUtil.buildSessionFactory();
     public static void save(Employee employee){
-        // open session
         Session session = sessionFactory.openSession();
-        // begin a criteria
         session.beginTransaction();
-        //use the session to save the contact
         session.save(employee);
-        // create list of contact
         session.getTransaction().commit();
-        // close the session
         session.close();
     }
     public static Employee fetchEmployeeByUsername(String username){
@@ -29,5 +31,15 @@ public class EmployeeDao {
         transaction.commit();
         session.close();
         return employee;
+    }
+    public static List<Employee> getAllRecords(){
+        Session session = sessionFactory.openSession();
+        CriteriaBuilder criteriaBuilder = session.getCriteriaBuilder();
+        CriteriaQuery<Employee> criteriaQuery = criteriaBuilder.createQuery(Employee.class);
+        Root<Employee> root = criteriaQuery.from(Employee.class);
+        criteriaQuery.select(root);
+        Query<Employee> query = session.createQuery(criteriaQuery);
+        List<Employee> weatherModelList = query.getResultList();
+        return weatherModelList;
     }
 }
