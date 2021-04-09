@@ -1,4 +1,4 @@
-package service;
+package servlet;
 
 import data.EmployeeDao;
 import model.Employee;
