@@ -12,7 +12,7 @@
   <ul>
     <li><a class="active" href="customer">sign up as customer</a></li>
     <li><a href="employee.html">sign up as employee</a></li>
-    <li><a href="manager">sign up as manager</a></li>
+    <li><a href="manager.html">sign up as manager</a></li>
   </ul>
 
   </body>
