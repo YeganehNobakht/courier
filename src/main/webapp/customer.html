@@ -1,77 +1,80 @@
+
 <!DOCTYPE html>
 <html lang="en">
-<link rel="stylesheet" href="styles/firstpagestyle.css">
 <head>
     <meta charset="UTF-8">
-    <title>customer sign up</title>
+    <link rel="stylesheet" href="styles/formStyle.css">
+    <link rel="stylesheet" href="styles/firstpagestyle.css">
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.19.0/jquery.validate.min.js"></script>
+    <script src="scripts/formValidity.js"></script>
     <script src="scripts/AddressSelection.js"></script>
+
+    <div class="header">
+        <h1>Chappar Courier</h1>
+    </div>
+    <ul>
+        <li><a class="active" href="index.jsp">Home</a></li>
+    </ul>
 </head>
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
 <body>
+<form id="RegForm" action="login2" method="post">
+    <p>
+        <label for="name1">Name <span>(required, at least 3 characters)</span></label>
+        <input id="name1" placeholder="Enter Name" name="name1">
+    </p>
+    <p>
+        <label for="lastName1">Last Name<span>(required)</span></label>
+        <input placeholder="Enter Last Name" name="lastName1" id="lastName1" >
+    </p>
+    <p>
+        <label for="email1">E-Mail<span>(required)</span></label>
+        <input id="email1" name="email1">
+    </p>
+    <p>
+        <label for="username1">username<span>(required)</span></label>
+        <input name="username1"  placeholder="Enter Username" id="username1">
+    </p>
 
-<form class="content" name="RegForm" action="login2"
-      onsubmit="return validateName()" method="post">
-    <div class="container">
-        <h1>Register</h1>
-        <p>Please fill in this form to create an account.</p>
-        <hr>
-
-        <label for="username1"><b>Username</b></label>
-        <input type="text" placeholder="Enter Username" name="username1" id="username1" required>
-
-        <label for="email1"><b>Email</b></label>
-        <input type="email" placeholder="Enter Email" name="email1" id="email1" required>
-
-        <label for="psw1"><b>Password</b></label>
-        <input type="password" placeholder="Enter Password" name="psw1" id="psw1" required>
-
-        <label for="name1"><b>Name</b></label>
-        <input type="text" placeholder="Enter Name" name="name1" id="name1" required>
-
-        <label for="lastName1"><b>Last Name</b></label>
-        <input type="text" placeholder="Enter Last Name" name="lastName1" id="lastName1" required>
-
-        <label for="mobileNumber"><b>Phone</b></label>
-        <input type="text" placeholder="Enter mobile number" name="mobileNumber" id="mobileNumber" required>
-
-        <label ><b>Address</b></label><br>
+    <p>
+        <label for="psw1">Password<span>(required)</span></label>
+        <input placeholder="Enter Password" name="psw1" id="psw1" >
+    </p>
+    <p>
+        <label for="mobileNumber">Phone<span>(required)</span></label>
+        <input placeholder="Enter mobile number" name="mobileNumber" id="mobileNumber" >
+    </p>
+    <p>
+        <label >Address</label><br>
         <select id="province" name="province" size="1" onchange="makeSubmenu(this.value)">
             <option value="" disabled selected>Choose State</option>
             <option>Tehran</option>
             <option>Isfahan</option>
             <option>Alborz</option>
         </select>
+
         <select id="citySelect" name="citySelect" size="1" >
             <option value="" disabled selected>Choose City</option>
             <option></option>
-        </select><br>
-        <input type="text" placeholder="Enter Street" name="customerStreet" id="customerStreet" size="50%" required>
-        <input type="text" placeholder="Enter Block" name="customerBlock" id="customerBlock" size="50%" required>
-
-        <label id="queryString"></label>
-        <input type="text" value="" id="result"/>
-
-        <input type="hidden" id="actualResult"/>
-
-        <!--        <input name="comment" id="ContactNow" type="button" value="Submit" onclick="_validate();">-->
-
-
-    </div>
-
-    <hr>
-
-
-    <p>By creating an account you agree to our <a class="aColour" href="#">Terms & Privacy</a>.</p>
-
-    <button type="submit" class="registerbtn" onclick="_validate() ;">Register</button>
-    </div>
-
+        </select>
+    </p>
+    <p>
+        <label for="customerStreet">Street(required)</label>
+        <input  placeholder="Enter Street" name="customerStreet" id="customerStreet" size="50%" required>
+    </p>
+    <p>
+        <label for="customerBlock">Street<span>(required)</span></label>
+        <input placeholder="Enter Block" name="customerBlock" id="customerBlock" size="50%" required>
+    </p>
+    <p>
+    <p>
+        <button type="submit" class="registerbtn" onclick="_validate();">Register</button>
+    </p>
     <div class="container signin">
         <p>Already have an account? <a class="aColour" href="signin">Sign in</a>.</p>
     </div>
 </form>
 
-<script src="scripts/Validity.js"></script>
 </body>
-
 </html>
