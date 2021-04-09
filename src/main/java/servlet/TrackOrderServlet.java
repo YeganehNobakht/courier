@@ -1,8 +1,6 @@
-package service;
+package servlet;
 
-import data.EntityDao;
-import model.NewDelivery;
-import model.OrderStates;
+import data.OrderStatusDao;
 import model.OrderStatus;
 
 import javax.servlet.ServletException;
@@ -21,12 +19,21 @@ public class TrackOrderServlet extends HttpServlet {
         PrintWriter writer = response.getWriter();
         HttpSession session = request.getSession(false);
         if (session.getAttribute("name") != null) {
-            writer.println("Welcome " + session.getAttribute("name"));
+            String username = (String) session.getAttribute("username");
             int trackingCode = Integer.parseInt(request.getParameter("customerTrack"));
-            OrderStatus orderStatus = EntityDao.fetchOrderByTrackingCode(trackingCode);
-            if (orderStatus!=null){
+            OrderStatus orderStatus = OrderStatusDao.fetchOrderByTrackingCode(trackingCode);
+            if (orderStatus!=null && username.equalsIgnoreCase(orderStatus.getCustomerUsername())){
                 if (orderStatus.getAcceptDate() == null){
-                    writer.println("<!DOCTYPE html>\n" +
+                    writer.println("<div class=\"header\">\n" +
+                            "    <h1>Chappar Courier</h1>\n" +
+                            "    <h6>Welcome "+session.getAttribute("name")+
+                            "    </h6>\n" +
+                            "</div>\n" +
+                            "<ul>\n" +
+                            "    <li><a class=\"active\" href=\"logout\">Logout</a></li>\n" +
+                            "    <li><a class=\"active\" href=\"customerService.jsp\">Service</a></li>\n" +
+                            "</ul>" +
+                            "<!DOCTYPE html>\n" +
                             "<html lang=\"en\">\n" +
                             "<link rel=\"stylesheet\" href=\"trackStyle.css\">\n" +
                             "<head>\n" +
@@ -157,7 +164,6 @@ public class TrackOrderServlet extends HttpServlet {
 
 
         }else{
-            writer.println("Please login first");
             request.getRequestDispatcher("customer.html").include(request, response);
         }
     }
