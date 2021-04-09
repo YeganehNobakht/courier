@@ -29,8 +29,10 @@ public class NewDelivery {
     private String submitDate;
     @Column
     private int price;
+    @Column
+    private String customerUsername;
 
-    public NewDelivery( String originAddress, String destinationAddress, String recipientsPhone, String recipientsName, String packageType, int packageWeight, String packageSize, String sendType, String submitDate) {
+    public NewDelivery( String originAddress, String destinationAddress, String recipientsPhone, String recipientsName, String packageType, int packageWeight, String packageSize, String sendType, String submitDate,String customerUsername) {
         this.originAddress = originAddress;
         this.destinationAddress = destinationAddress;
         RecipientsPhone = recipientsPhone;
@@ -46,7 +48,7 @@ public class NewDelivery {
             this.price = 14000 * packageWeight;
         if (sendType.equalsIgnoreCase("silver"))
             this.price = 10000 * packageWeight;
-
+        this.customerUsername = customerUsername;
     }
 
     public NewDelivery() {
@@ -136,7 +138,16 @@ public class NewDelivery {
         return price;
     }
 
+    public String getCustomerUsername() {
+        return customerUsername;
+    }
+
+    public void setCustomerUsername(String customerUsername) {
+        this.customerUsername = customerUsername;
+    }
+
     public void setPrice(int price) {
+
         this.price = price;
     }
 }
