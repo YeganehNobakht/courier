@@ -13,8 +13,6 @@
 <%@ page import="service.Courier" %>
 <%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 
-<h1>Reserve List</h1>
-
 <%
     HttpSession session1 = request.getSession(false);
     PrintWriter writer = response.getWriter();
@@ -35,6 +33,7 @@
 </div>
 <ul>
     <li><a class="active" href="logout">Logout</a></li>
+    <li><a class="active" href="takeMoreOrder">Take Order</a></li>
 </ul><br>
 <center>
     <table border="1" width="90%">
