@@ -1,7 +1,7 @@
 package servlet;
 
-import data.NewDeliveryDao;
-import data.OrderStatusDao;
+import model.data.NewDeliveryDao;
+import model.data.OrderStatusDao;
 import model.OrderStates;
 import model.OrderStatus;
 

@@ -1,8 +1,7 @@
 package servlet;
 
-import data.EmployeeDao;
-import data.ManagerDao;
-import model.Employee;
+import model.data.EmployeeDao;
+import model.data.ManagerDao;
 import model.Manager;
 
 import javax.servlet.*;

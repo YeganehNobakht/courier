@@ -1,4 +1,4 @@
-package data;
+package model.data;
 
 import model.OrderStatus;
 import org.hibernate.Session;

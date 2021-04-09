@@ -1,6 +1,6 @@
 package servlet;
 
-import data.CustomerDao;
+import model.data.CustomerDao;
 import model.Customer;
 
 import javax.servlet.*;

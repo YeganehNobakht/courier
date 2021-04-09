@@ -1,9 +1,10 @@
-package service;
+package servlet;
 
-import data.EntityDao;
+import model.data.CustomerDao;
 import model.NewDelivery;
 import model.OrderStates;
 import model.OrderStatus;
+import service.Courier;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -12,17 +13,13 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import java.io.IOException;
-import java.io.PrintWriter;
-import java.sql.Date;
 
 @WebServlet(name = "SubmitServlet")
 public class SubmitServlet extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         response.setContentType("text/html");
-        PrintWriter writer = response.getWriter();
         HttpSession session = request.getSession(false);
         if (session.getAttribute("name") != null) {
-            writer.println("Welcome " + session.getAttribute("name"));
             String originProvince = request.getParameter("originProvince");
            String originCity = request.getParameter("originCity");
            String originStreet = request.getParameter("street");
@@ -44,43 +41,19 @@ public class SubmitServlet extends HttpServlet {
            String packageSize = request.getParameter("nDocOption");
            String sendType = request.getParameter("prc");
            String dateOfRegistration = request.getParameter("startdate");
+           String usernamae = (String) session.getAttribute("username");
 
-           NewDelivery newDelivery = new NewDelivery(originAddress,desAddress,recPhone,recName,packageType,weight,packageSize,sendType,dateOfRegistration);
+           NewDelivery newDelivery = new NewDelivery(originAddress,desAddress,recPhone,recName,packageType,weight,packageSize,sendType,dateOfRegistration,usernamae);
+            int trackingCode = Courier.generateTrackingCode(newDelivery);
+            request.setAttribute("trackingCode", "trackingCode");
+            String username = (String) session.getAttribute("username");
 
-            int trackingCode = 0;
-            if (EntityDao.getMaxReserveNumber() != null) {
-                trackingCode = EntityDao.getMaxReserveNumber()+1;
-                newDelivery.setTrackingCode(trackingCode);
-            } else {
-                trackingCode = 10001;
-                newDelivery.setTrackingCode(trackingCode);
-            }
+            OrderStatus orderStatus = new OrderStatus(trackingCode,dateOfRegistration, OrderStates.REGISTERED,username);
+            CustomerDao.save(orderStatus);
+            CustomerDao.save(newDelivery);
 
-            OrderStatus orderStatus = new OrderStatus(trackingCode,dateOfRegistration, OrderStates.REGISTERED);
-
-            EntityDao.save(orderStatus);
-            EntityDao.save(newDelivery);
-            writer.println("<!DOCTYPE html>\n" +
-                    "<html lang=\"en\">\n" +
-                    "<link rel=\"stylesheet\" href=\"firstpagestyle.css\">\n" +
-                    "<head>\n" +
-                    "    <meta charset=\"UTF-8\">\n" +
-                    "    <title>submit</title>\n" +
-                    "</head>\n" +
-                    "<body>\n" +
-                    "<div class=\"km-pay-state-style km-box-style2\">\n" +
-                    "    <div class=\"KM_wrapperStatusCart\"><img src=\"submit.png\"></div>\n" +
-                    "    <div>Order with tracking code "+trackingCode+" was successfully registered</div>\n" +
-                    "    <div class=\"KM_wrapperFollowUpOrder\">\n" +
-                    "        <a class=\"KM_FollowUpOrderLink\" href=\"trackorder\" target=\"_blank\">Tracking Order</a>\n" +
-                    "        <a class=\"KM_returnHome\" href=\"service\">Return to home page</a></div>\n" +
-                    "</div>\n" +
-                    "</div>\n" +
-                    "</body>\n" +
-                    "</html>");
-
-        }else{
-            writer.println("Please login first");
+            request.getRequestDispatcher("submit.jsp").include(request, response);
+          }else{
             request.getRequestDispatcher("customer.html").include(request, response);
         }
     }

@@ -1,7 +1,6 @@
 package servlet;
 
-import data.CustomerDao;
-import model.Customer;
+import model.data.CustomerDao;
 import service.Courier;
 
 import javax.servlet.ServletException;

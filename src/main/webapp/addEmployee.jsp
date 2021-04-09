@@ -15,12 +15,12 @@
 </head>
 <body>
 
-<%@page import="data.NewDeliveryDao" %>
+<%@page import="model.data.NewDeliveryDao" %>
 <%@ page import="model.NewDelivery" %>
 <%@ page import="java.util.List" %>
 <%@ page import="java.io.PrintWriter" %>
 <%@ page import="model.Employee" %>
-<%@ page import="data.EmployeeDao" %>
+<%@ page import="model.data.EmployeeDao" %>
 <%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <%
     HttpSession session1 = request.getSession(false);

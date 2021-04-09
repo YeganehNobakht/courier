@@ -1,6 +1,6 @@
 package servlet;
 
-import data.ManagerDao;
+import model.data.ManagerDao;
 import model.Manager;
 
 import javax.servlet.ServletException;

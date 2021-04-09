@@ -1,6 +1,6 @@
 package servlet;
 
-import data.OrderStatusDao;
+import model.data.OrderStatusDao;
 import model.OrderStatus;
 
 import javax.servlet.ServletException;
@@ -42,7 +42,7 @@ public class TrackOrderServlet extends HttpServlet {
                             "</head>\n" +
                             "<body>\n" +
                             "\n" +
-                            "<ol class=\"progress\" data-steps=\"4\">\n" +
+                            "<ol class=\"progress\" model.data-steps=\"4\">\n" +
                             "    <li class=\"done\">\n" +
                             "        <span class=\"name\">Registered</span>\n" +
                             "        <span class=\"step\"><span>1</span></span>\n" +
@@ -73,7 +73,7 @@ public class TrackOrderServlet extends HttpServlet {
                             "</head>\n" +
                             "<body>\n" +
                             "\n" +
-                            "<ol class=\"progress\" data-steps=\"4\">\n" +
+                            "<ol class=\"progress\" model.data-steps=\"4\">\n" +
                             "    <li class=\"done\">\n" +
                             "        <span class=\"name\">Registered</span>\n" +
                             "        <span class=\"step\"><span>1</span></span>\n" +
@@ -104,7 +104,7 @@ public class TrackOrderServlet extends HttpServlet {
                             "</head>\n" +
                             "<body>\n" +
                             "\n" +
-                            "<ol class=\"progress\" data-steps=\"4\">\n" +
+                            "<ol class=\"progress\" model.data-steps=\"4\">\n" +
                             "    <li class=\"done\">\n" +
                             "        <span class=\"name\">Registered</span>\n" +
                             "        <span class=\"step\"><span>1</span></span>\n" +
@@ -135,7 +135,7 @@ public class TrackOrderServlet extends HttpServlet {
                             "</head>\n" +
                             "<body>\n" +
                             "\n" +
-                            "<ol class=\"progress\" data-steps=\"4\">\n" +
+                            "<ol class=\"progress\" model.data-steps=\"4\">\n" +
                             "    <li class=\"done\">\n" +
                             "        <span class=\"name\">Registered</span>\n" +
                             "        <span class=\"step\"><span>1</span></span>\n" +

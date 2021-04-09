@@ -1,9 +1,9 @@
 package service;
 
-import data.CustomerDao;
-import data.EmployeeDao;
-import data.NewDeliveryDao;
-import data.OrderStatusDao;
+import model.data.CustomerDao;
+import model.data.EmployeeDao;
+import model.data.NewDeliveryDao;
+import model.data.OrderStatusDao;
 import model.Customer;
 import model.Employee;
 import model.NewDelivery;

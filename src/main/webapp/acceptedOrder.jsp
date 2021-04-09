@@ -1,8 +1,8 @@
 <%@ page import="java.io.PrintWriter" %>
 <%@ page import="model.OrderStatus" %>
-<%@ page import="data.OrderStatusDao" %>
+<%@ page import="model.data.OrderStatusDao" %>
 <%@ page import="model.OrderStates" %>
-<%@ page import="data.NewDeliveryDao" %>
+<%@ page import="model.data.NewDeliveryDao" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <link rel="stylesheet" href="styles/firstpagestyle.css">

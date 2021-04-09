@@ -1,8 +1,6 @@
-package data;
+package model.data;
 
-import model.Customer;
 import model.Employee;
-import model.NewDelivery;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.Transaction;

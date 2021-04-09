@@ -1,6 +1,5 @@
-package data;
+package model.data;
 
-import model.Employee;
 import model.Manager;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
