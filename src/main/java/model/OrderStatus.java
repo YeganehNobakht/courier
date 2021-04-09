@@ -17,7 +17,7 @@ public class OrderStatus {
     private String sendingDate;
     @Column(nullable = true)
     private String deliverDate;
-    @Column(nullable = false, unique = true)
+    @Column
     private String employeeId;
     @Column(nullable = false)
     private String customerUsername;
@@ -35,11 +35,11 @@ public class OrderStatus {
         this.employeeId = employeeId;
     }
 
-    public OrderStatus(int orderId, String registerDate, OrderStates orderStates, String customerUsername) {
+    public OrderStatus(int orderId, String registerDate, OrderStates orderStates,String username) {
         this.orderId = orderId;
         this.registerDate = registerDate;
         this.orderStates = orderStates;
-        this.customerUsername = customerUsername;
+        this.customerUsername = username;
     }
 
     public OrderStatus(int orderId, String registerDate, OrderStates orderStates, String acceptDate, String sendingDate, String deliverDate, String employeeId) {
