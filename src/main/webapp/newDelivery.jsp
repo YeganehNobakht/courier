@@ -9,6 +9,23 @@
 </head>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
 <body onload="resetSelection()">
+<%
+    HttpSession session1 = request.getSession(false);
+    String name = (String) session1.getAttribute("name");
+    if ( name== null) {
+        request.getRequestDispatcher("customer.html").include(request, response);
+    } else {
+%>
+
+<div class="header">
+    <h1>Chappar Courier</h1>
+    <h6>Welcome <%=session.getAttribute("name")%>
+    </h6>
+</div>
+<ul>
+    <li><a class="active" href="logout">Logout</a></li>
+    <li><a class="active" href="customerService.jsp">Service</a></li>
+</ul>
 
 <form name="form" id="form" class="content"  action="submit"
        method="post">
@@ -126,6 +143,9 @@
     //call getDate() when loading the page
     getDate();
 </script>
+<%
+    }
+%>
 </body>
 
 </html>
